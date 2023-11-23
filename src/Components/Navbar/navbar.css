@@ -1,0 +1,17 @@
+nav{
+    display: flex;
+    justify-content:space-around;
+    align-items: center;
+}
+.logo{
+}
+ul{
+    display: flex;
+    background-color: rgb(185, 133, 96);
+    padding: 1rem;
+    list-style: none;
+}
+ul li{
+    padding-left: 1em;
+    cursor: pointer;
+}
