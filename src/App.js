@@ -30,21 +30,25 @@ class App extends Component {
           colour: "blue",
         },
       ],
+      isShow : true,
     };
+  }
+  togglehandel() {
+    this.setState({isShow: !this.state.isShow});
   }
   render() {
     let fruits;
-    fruits = this.state.fruits.map((p) => {
-      return <Namee name={p.name} colour={p.colour} />;
+    fruits = this.state.fruits.map((p, index) => {
+      return <Namee key={index} name={p.name} colour={p.colour} />;
     });
     return (
       <div>
         <Navbar />
         <Number />
-
+        <button className="btn" onClick={this.togglehandel.bind(this)}>{this.state.isShow===true?"Hide":"Show"}</button>
         <Eventhandeler />
         <Footer />
-        {fruits}
+        {this.state.isShow === true ?fruits:""}
       </div>
     );
   }
