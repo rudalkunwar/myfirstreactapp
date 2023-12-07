@@ -19,7 +19,7 @@ class Namee extends Component {
     };
     return (
       <div style={style}>
-        <div style={pstyle}>
+        <div style={pstyle} onClick={this.props.remove}>
           <ul>
             <li><span>Name:</span> <span> {this.props.name}</span></li>
             <li><span>Colour:</span> <span> {this.props.colour}</span></li>

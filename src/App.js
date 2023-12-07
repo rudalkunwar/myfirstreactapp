@@ -30,25 +30,34 @@ class App extends Component {
           colour: "blue",
         },
       ],
-      isShow : true,
+      isShow: true,
     };
   }
   togglehandel() {
-    this.setState({isShow: !this.state.isShow});
+    this.setState({ isShow: !this.state.isShow });
+  }
+  removeItem = (itemIndex)=>{
+   const oldfruits = this.state.fruits;
+   oldfruits.splice(itemIndex,1);
+   this.setState({fruits : oldfruits});
+
   }
   render() {
     let fruits;
     fruits = this.state.fruits.map((p, index) => {
-      return <Namee key={index} name={p.name} colour={p.colour} />;
+            <button onClick={()=>this.removeItem()} style={{background:"red",color:"white"}}>Delete</button>
+      return <Namee key={index} name={p.name} colour={p.colour} remove={()=>this.removeItem(index)}  />;
     });
     return (
       <div>
         <Navbar />
         <Number />
-        <button className="btn" onClick={this.togglehandel.bind(this)}>{this.state.isShow===true?"Hide":"Show"}</button>
+        <button className="btn" onClick={this.togglehandel.bind(this)}>
+          {this.state.isShow === true ? "Hide" : "Show"}
+        </button>
         <Eventhandeler />
         <Footer />
-        {this.state.isShow === true ?fruits:""}
+        {this.state.isShow === true ? fruits : ""}
       </div>
     );
   }
