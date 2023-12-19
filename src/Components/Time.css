@@ -1,0 +1,15 @@
+.time{
+display: flex;
+height: 93vh;
+justify-content: center;
+align-items: center;
+background-color: #4a8348;
+
+}
+.show-time{
+    background-color: #bd3bc1;
+    padding: 50px 200px 50px 200px;
+    border-radius: 150px;
+    font-size: 60px;
+    color: white;
+}

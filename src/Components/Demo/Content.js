@@ -1,10 +1,22 @@
 import React, { Component } from "react";
-import '../Demo.css';
+import "../Demo.css";
+import Form from "../Form";
 export class Content extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: "",
+    };
+  }
+  formhandeller = (event) => {
+    console.log("Oldddd", this.state);
+    const message = event.target.value;
+    this.setState({ message }, () => console.log("Newwww", this.state));
+  };
   render() {
     return (
       <div>
-        {" "}
+        <Form />
         <div className="body">
           <div className="inside-body">
             <div>
@@ -27,7 +39,15 @@ export class Content extends Component {
                 />
                 <div className="msg-item">
                   <h5>2:12 PM</h5>
-                  <p>Hello how are you my dear friend</p>
+                  <form>
+                    <label>Message:</label>
+                    <input
+                      type="text"
+                      name="name"
+                      onChange={this.formhandeller}
+                    ></input>
+                  </form>
+                  <p>{this.state.message}</p>
                 </div>
               </span>
             </div>
