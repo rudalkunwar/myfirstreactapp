@@ -3,8 +3,8 @@ import FooterCss from './Footer.module.css';
 
 function Footer(){
     return(
-        <div>
-            <ul className={FooterCss.footer}>
+        <div className={FooterCss.footer}>
+            <ul>
                 <li><a>Links</a></li>
                 <li><a>Facebook</a></li>
                 <li><a>Linkedin</a></li>
@@ -12,6 +12,5 @@ function Footer(){
             </ul>
         </div>
     );
-
 }
 export default Footer;
