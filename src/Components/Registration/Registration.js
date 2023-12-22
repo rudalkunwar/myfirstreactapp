@@ -2,26 +2,24 @@ import React from "react";
 export default function Registration(props) {
   let passType;
   const iclass = [
-  "text-2xl",
-  "absolute",
-  "right-0",
-  "inset-y-0",
-  "items-center",
-  "flex",
-  "pr-2"];
-  if(props.status){
-      passType="text";
-      iclass.push("ri-eye-off-line");
-      console.log(iclass);
+    "text-2xl",
+    "absolute",
+    "right-0",
+    "inset-y-0",
+    "items-center",
+    "flex",
+    "pr-2",
+  ];
+  if (props.status) {
+    passType = "text";
+    iclass.push("ri-eye-off-line");
+    console.log(iclass);
+  } else {
+    passType = "password";
+    iclass.push("ri-eye-line");
+    console.log(iclass);
   }
-  else{
-      passType="password";
-      iclass.push("ri-eye-line");
-      console.log(iclass);
-
-    }
   return (
-    
     <div>
       <form
         onSubmit={props.register}
@@ -50,10 +48,7 @@ export default function Registration(props) {
               name="password"
               required
             />{" "}
-            <i
-              onClick={props.togglepass}
-              className={iclass.join(" ")} 
-            ></i>
+            <i onClick={props.togglepass} className={iclass.join(" ")}></i>
           </div>
           <input
             className="block p-2 px-5 mb-2 rounded bg-green-500 w-full text-white hover:bg-green-400"
