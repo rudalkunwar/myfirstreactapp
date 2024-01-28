@@ -327,3 +327,67 @@
 //   }
 // }
 // export default App;
+// import React, { Component } from 'react';
+// import Gitprofile from './Components/Github-Profile/Gitprofile';
+// import axios from 'axios';
+
+// export default class App extends Component {
+//   constructor(props){
+//     super(props);
+//     this.state={
+//       username:null,
+//       repo:null,
+//       folwer:null,
+//       flwin:null,
+//       pic:null,
+//     }
+//   }
+
+//   getUserData = (event) => {
+//     event.preventDefault();
+//     const formdata = new FormData(event.target);
+//     let username = formdata.get('name');
+//     this.setState({ username }, () => {
+//       const data = axios.get(`https://api.github.com/users/${username}`);
+//       data.then((gitdata) => {
+//         let repo = gitdata.data.public_repos;
+//         let folwer = gitdata.data.followers;
+//         let flwin = gitdata.data.following;
+//         let pic = gitdata.data.avatar_url;
+//         this.setState({ repo, folwer, flwin, pic });
+//       }).catch(() => {
+//         this.setState({ username: "User not found" });
+//       });
+//     });
+//   }
+
+//   render() {
+//     return (
+//       <div>
+//         {/* Pass getUserData method as a prop to Gitprofile */}
+//         <Gitprofile user={this.getUserData} uimage={this.state.pic} />
+//       </div>
+//     )
+//   }
+// }
+// import React from 'react'
+// import { useState } from 'react'
+
+// export default function App() {
+//   const [time,getTime]=useState('');
+
+//   let currentTime=()=>{
+//     console.log(time);
+//     const Gtime = new Date();
+//     let ctime = Gtime.toLocaleTimeString();
+//     getTime(ctime);
+//   }
+//   setInterval(() => {
+//     currentTime();
+//   },1000);
+//   return (
+//     <div className='h-screen bg-blue-300 flex justify-center items-center'>
+//       <p className='text-4xl bg-yellow-300 px-24 py-6 rounded-full'>{time}</p>
+//     </div>
+//   )
+// }

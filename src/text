@@ -1,0 +1,448 @@
+he rotation matrix is given by:
+
+[
+cos
+⁡
+(
+ 
+)
+−
+sin
+⁡
+(
+ 
+)
+sin
+⁡
+(
+ 
+)
+cos
+⁡
+(
+ 
+)
+]
+[ 
+cos(θ)
+sin(θ)
+​
+  
+−sin(θ)
+cos(θ)
+​
+ ]
+For a 30-degree counterclockwise rotation:
+
+[
+cos
+⁡
+(
+3
+0
+∘
+)
+−
+sin
+⁡
+(
+3
+0
+∘
+)
+sin
+⁡
+(
+3
+0
+∘
+)
+cos
+⁡
+(
+3
+0
+∘
+)
+]
+=
+[
+3
+/
+2
+−
+1
+/
+2
+1
+/
+2
+3
+/
+2
+]
+[ 
+cos(30 
+∘
+ )
+sin(30 
+∘
+ )
+​
+  
+−sin(30 
+∘
+ )
+cos(30 
+∘
+ )
+​
+ ]=[ 
+3
+​
+ /2
+1/2
+​
+  
+−1/2
+3
+​
+ /2
+​
+ ]
+Now, let's apply this matrix to each point.
+
+For Point A(5,7):
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+3
+/
+2
+−
+1
+/
+2
+1
+/
+2
+3
+/
+2
+]
+[
+0
+4
+]
++
+[
+5
+3
+]
+[ 
+x 
+A
+′
+​
+ 
+y 
+A
+′
+​
+ 
+​
+ ]=[ 
+3
+​
+ /2
+1/2
+​
+  
+−1/2
+3
+​
+ /2
+​
+ ][ 
+0
+4
+​
+ ]+[ 
+5
+3
+​
+ ]
+Simplifying this gives the new coordinates of A':
+
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+4
+3
++
+5
+/
+2
+4
+3
++
+3
+/
+2
+]
+[ 
+x 
+A
+′
+​
+ 
+y 
+A
+′
+​
+ 
+​
+ ]=[ 
+4 
+3
+​
+ +5/2
+4 
+3
+​
+ +3/2
+​
+ ]
+For Point B(12,85):
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+3
+/
+2
+−
+1
+/
+2
+1
+/
+2
+3
+/
+2
+]
+[
+7
+82
+]
++
+[
+5
+3
+]
+[ 
+x 
+B
+′
+​
+ 
+y 
+B
+′
+​
+ 
+​
+ ]=[ 
+3
+​
+ /2
+1/2
+​
+  
+−1/2
+3
+​
+ /2
+​
+ ][ 
+7
+82
+​
+ ]+[ 
+5
+3
+​
+ ]
+Simplifying this gives the new coordinates of B':
+
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+69
+3
+/
+2
++
+5
+/
+2
+41
+3
+/
+2
++
+3
+/
+2
+]
+[ 
+x 
+B
+′
+​
+ 
+y 
+B
+′
+​
+ 
+​
+ ]=[ 
+69 
+3
+​
+ /2+5/2
+41 
+3
+​
+ /2+3/2
+​
+ ]
+For Point C(5,3):
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+3
+/
+2
+−
+1
+/
+2
+1
+/
+2
+3
+/
+2
+]
+[
+0
+0
+]
++
+[
+5
+3
+]
+[ 
+x 
+C
+′
+​
+ 
+y 
+C
+′
+​
+ 
+​
+ ]=[ 
+3
+​
+ /2
+1/2
+​
+  
+−1/2
+3
+​
+ /2
+​
+ ][ 
+0
+0
+​
+ ]+[ 
+5
+3
+​
+ ]
+Simplifying this gives the new coordinates of C', which remains the same since the rotation is around the point (5,3):
+
+[
+ 
+ 
+′
+ 
+ 
+′
+]
+=
+[
+5
+3
+]
+[ 
+x 
+C
+′
+​
+ 
+y 
+C
+′
+​
+ 
+​
+ ]=[ 
+5
+3
+​
+ ]
+These are the new coordinates of A', B', and C' after a counterclockwise rotation of 30 degrees about the point (5,3).

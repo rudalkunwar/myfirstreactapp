@@ -5,7 +5,7 @@ class Gitprofile extends Component {
   //  "followers_url": "https://api.github.com/user/followers"
   //  "following_url": "https://api.github.com/user/following{/target}"
   constructor(props) {
-    super();
+    super(props);
   }
   render() {
     const gradient = {
@@ -25,7 +25,7 @@ class Gitprofile extends Component {
                 <div className="flex flex-col justify-center pr-48 h-full ">
                   <p className="p-2 text-xl">User Name:{this.props.uname}</p>
 
-                  <p className="p-2  text-xl">Created At: {this.props.date.slice(0,10)}</p>
+                  <p className="p-2  text-xl">Created At: {this.props.date}</p>
                 </div>
               </div>
               <form onSubmit={this.props.user}>

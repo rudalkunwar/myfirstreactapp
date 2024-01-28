@@ -1,11 +1,13 @@
-import React, { Component } from 'react';
-import Main from './Components/Register&Login/Main';
-export default class App extends Component {
-  render() {
-    return (
-      <div>
-        <Main/>
-      </div>
-    )
+import React, { useState } from 'react'
+
+export default function App() {
+  const [text,setText] = useState('');
+  const textFun =  () => {
+
   }
+  return (
+    <div>
+    <textarea onKeyUp={textFun} cols="30" rows="10"></textarea>
+    </div>
+  )
 }
