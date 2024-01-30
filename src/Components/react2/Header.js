@@ -9,15 +9,15 @@ export default function Header() {
           <div className="">Blogge</div>
           <div>
             <ul className="flex">
-              <Link className="pl-5 cursor-pointer hover:text-blue-600" to="/">
-                Home
-              </Link>
-              <Link className="pl-5 cursor-pointer hover:text-blue-600" to='/about'>
-                About
-              </Link>
-              <Link className="pl-5 cursor-pointer hover:text-blue-600" to='/contact'>
-                Contact
-              </Link>
+              <li className="pl-5 cursor-pointer hover:text-blue-600">
+                <Link to="/">Home</Link>
+              </li>
+              <li className="pl-5 cursor-pointer hover:text-blue-600">
+                <Link to="/about">About</Link>
+              </li>
+              <li className="pl-5 cursor-pointer hover:text-blue-600">
+                <Link to="/contact">Contact</Link>
+              </li>
             </ul>
           </div>
         </div>
