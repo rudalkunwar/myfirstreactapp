@@ -13,6 +13,12 @@ export default function Header() {
                 <Link to="/">Home</Link>
               </li>
               <li className="pl-5 cursor-pointer hover:text-blue-600">
+                <Link to="/blogs">Blogs</Link>
+              </li>
+              <li className="pl-5 cursor-pointer hover:text-blue-600">
+                <Link to="/blog/add">Add Blogs</Link>
+              </li>
+              <li className="pl-5 cursor-pointer hover:text-blue-600">
                 <Link to="/about">About</Link>
               </li>
               <li className="pl-5 cursor-pointer hover:text-blue-600">

@@ -1,20 +1,15 @@
-import axios from "axios";
-import React, { useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "../../api/axios";
+import React from "react";
 
 export default function Home() {
   const getBlogs = async () => {
     try {
-      const response = await axios.get("/", {
-        name:'rudal'
-      },{
-        headers: {
-          "Content-Type": "application/app",
-        },
-      });
-    //   const data = response.data;
-    //   console.log(response.data);
+      const response = await axios.get("/");
+      const data = response.data;
+      console.log(data); // Log the received data
     } catch (e) {
-      console.log("error:Cannot connected to the server" + e);
+      console.log("error: Cannot connect to the server" + e);
     }
   };
   return (
@@ -23,15 +18,18 @@ export default function Home() {
         <h2 className="text-5xl"> Blogge</h2>
         <p className="text-2xl">Welcome to the rudal blog.</p>
         <div className="mt-5">
-          <a
-            href=""
+          <Link
             className="bg-blue-500 px-2 py-3 text-white rounded-md mr-5"
+            to=""
           >
+            {" "}
             Get Started
-          </a>
-          <a href="" className="bg-blue-500 px-2 py-3 text-white rounded-md">
+          </Link>
+          <Link className="bg-blue-500 px-2 py-3 text-white rounded-md" to="">
+            {" "}
             Login
-          </a>
+          </Link>
+
           <button onClick={getBlogs}>View Blogs</button>
         </div>
       </div>
