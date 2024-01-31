@@ -55,7 +55,7 @@ export default function AddBlog() {
       }
     } catch (e) {
       setLoading(false);
-      errorMessage(e + "Cannot Connect to the database");
+      errorMessage("Connection Failed!!!!!!");
     }
   };
   return (
