@@ -1,10 +1,32 @@
 import React from "react";
+import axios from "../../api/axios";
 
 export default function AddBlog() {
+  const addBlog = async (e) => {
+    e.preventDefault();
+    const formdata = new FormData(e.target);
+    const title = formdata.get("title");
+    const snippet = formdata.get("snippet");
+    const body = formdata.get("body");
+    try {
+      const response = await axios.post("/blog/add", {
+        title,
+        snippet,
+        body,
+      });
+      const data = response.data;
+      console.log(data);
+    } catch (e) {
+      console.log("Error" + e);
+    }
+  };
   return (
     <div>
       <div className="max-w-md mx-auto mt-8">
-        <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+        <form
+          className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
+          onSubmit={addBlog}
+        >
           <div className="mb-4">
             <label
               htmlFor="title"
@@ -15,6 +37,7 @@ export default function AddBlog() {
             <input
               type="text"
               id="title"
+              name="title"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             />
@@ -30,6 +53,7 @@ export default function AddBlog() {
             <input
               type="text"
               id="snippet"
+              name="snippet"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             />
@@ -44,6 +68,7 @@ export default function AddBlog() {
             </label>
             <textarea
               id="body"
+              name="body"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
               required
             />
