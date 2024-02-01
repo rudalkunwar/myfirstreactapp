@@ -125,7 +125,7 @@ export default function UpdateBlog() {
                   style={{ marginRight: "8px" }}
                 />
               )}{" "}
-              Submit
+              Update
             </button>
           </div>
         </form>
