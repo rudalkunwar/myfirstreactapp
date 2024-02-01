@@ -7,6 +7,8 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function UpdateBlog() {
   const [loading, setLoading] = useState(false);
+  const [blogs, setBlogs] = useState([]);
+
   const errorMessage = (err) => {
     setLoading(false);
     toast.error(err, {
@@ -31,7 +33,20 @@ export default function UpdateBlog() {
       theme: "colored",
     });
   };
-  const addBlog = async (e) => {
+  const BlogDetail = async () => {
+    try {
+      const response = await axios.get(`/blog/${id}`);
+      if (response.status === 200) {
+        setBlogs(newblogs.blogs);
+      }
+    } catch (e) {
+      console.log("Server Error");
+    }
+  };
+  useEffect(() => {
+    BlogDetail();
+  });
+  const updateBlog = async (e) => {
     e.preventDefault();
     setLoading(true);
     const form = e.target;
@@ -64,7 +79,7 @@ export default function UpdateBlog() {
       <div className="max-w-md mx-auto mt-8">
         <form
           className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4"
-          onSubmit={addBlog}
+          onSubmit={updateBlog}
         >
           <div className="mb-4">
             <label

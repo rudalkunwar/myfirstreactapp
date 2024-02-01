@@ -31,9 +31,6 @@ export default function Blog() {
       theme: "colored",
     });
   };
-  useEffect(() => {
-    BlogDetail();
-  });
   const BlogDetail = async () => {
     try {
       const response = await axios.get(`/blog/${id}`);
@@ -44,6 +41,10 @@ export default function Blog() {
       console.log("Server Error");
     }
   };
+  useEffect(() => {
+    BlogDetail();
+  });
+  
   const deleteBlog = async (id) => {
     try {
       const response = await axios.delete(`/blog/delete/${id}`);

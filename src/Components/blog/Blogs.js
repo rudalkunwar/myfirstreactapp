@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 export default function Blogs() {
   // Use destructuring to get the state and the setter function from useState
   const [blogs, setBlogs] = useState([]);
+
   const errorMessage = (err) => {
     toast.error(err, {
       position: "top-right",
