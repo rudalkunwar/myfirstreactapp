@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "../../api/axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import { faTrash,faEdit } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link } from "react-router-dom";
@@ -68,12 +68,22 @@ export default function Blogs() {
               <div className="shadow-md w-1/2 my-5 pl-10 py-4 bg-cyan-200">
                 <div className="flex justify-between">
                   <h3 className="text-xl font-bold mb-2">{blog.title}</h3>{" "}
-                  <button
-                    className="bg-gray-100 mr-16 p-3 rounded-lg hover:bg-gray-900 hover:text-white cursor-pointer"
+                 <div className="flex">
+                 <button
+                    className="bg-gray-100 mr-5 p-3 rounded-lg hover:bg-gray-900 hover:text-white cursor-pointer"
                     onClick={() => deleteBlog(blog._id)}
                   >
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
+                  <Link
+                  to={`edit/${blog._id}`}
+
+                    className="bg-gray-100 mr-16 p-3 rounded-lg hover:bg-gray-900 hover:text-white cursor-pointer"
+                  >
+                  <FontAwesomeIcon icon={faEdit} />
+                  </Link>
+
+                 </div>
                 </div>
                 <p className="text-gray-600 mb-4 text-xl">{blog.snippet}</p>
                 <Link

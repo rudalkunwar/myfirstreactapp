@@ -7,6 +7,7 @@ import { Route, Routes } from "react-router-dom";
 import AddBlog from "./Components/blog/AddBlog";
 import Blogs from "./Components/blog/Blogs";
 import Blog from "./Components/blog/Blog";
+import Editblog from "./Components/blog/Editblog";
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/add" element={<AddBlog />} />
         <Route path="blogs/blog/:id" element={<Blog />} />
+        <Route path="blogs/edit/:id" element={<Editblog />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
     </>

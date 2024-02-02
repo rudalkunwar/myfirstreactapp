@@ -4,11 +4,14 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from "react";
+import { useParams } from "react-router-dom";
 
-export default function UpdateBlog() {
+export default function Editblog() {
   const [loading, setLoading] = useState(false);
-  const [blogs, setBlogs] = useState([]);
+  const [blogs, setBlog] = useState([]);
 
+  const { id } = useParams();
   const errorMessage = (err) => {
     setLoading(false);
     toast.error(err, {
@@ -35,9 +38,9 @@ export default function UpdateBlog() {
   };
   const BlogDetail = async () => {
     try {
-      const response = await axios.get(`/blog/${id}`);
+      const response = await axios.get(`/update/${id}`);
       if (response.status === 200) {
-        setBlogs(newblogs.blogs);
+        setBlog(response.data.blog);
       }
     } catch (e) {
       console.log("Server Error");
@@ -89,6 +92,7 @@ export default function UpdateBlog() {
               Title:
             </label>
             <input
+              value={blogs.title}
               type="text"
               id="title"
               name="title"
@@ -105,6 +109,7 @@ export default function UpdateBlog() {
               Snippet:
             </label>
             <input
+              value={blogs.snippet}
               type="text"
               id="snippet"
               name="snippet"
@@ -121,6 +126,7 @@ export default function UpdateBlog() {
               Body:
             </label>
             <textarea
+              value={blogs.body}
               id="body"
               name="body"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
