@@ -9,7 +9,11 @@ import { useParams } from "react-router-dom";
 
 export default function Editblog() {
   const [loading, setLoading] = useState(false);
-  const [blogs, setBlog] = useState([]);
+  const [blog, setBlog] = useState({
+    title: "",
+    snippet: "",
+    body: "",
+  });
 
   const { id } = useParams();
   const errorMessage = (err) => {
@@ -24,22 +28,11 @@ export default function Editblog() {
       theme: "colored",
     });
   };
-  const sucessMessage = (msg) => {
-    setLoading(false);
-    toast.success(msg, {
-      position: "top-right",
-      autoClose: 3000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      progress: undefined,
-      theme: "colored",
-    });
-  };
   const BlogDetail = async () => {
     try {
-      const response = await axios.get(`/update/${id}`);
+      const response = await axios.get(`/blog/${id}`);
       if (response.status === 200) {
+        console.log(response.data);
         setBlog(response.data.blog);
       }
     } catch (e) {
@@ -48,7 +41,7 @@ export default function Editblog() {
   };
   useEffect(() => {
     BlogDetail();
-  });
+  }, []);
   const updateBlog = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -58,7 +51,7 @@ export default function Editblog() {
     const snippet = formdata.get("snippet");
     const body = formdata.get("body");
     try {
-      const response = await axios.post("/blog/add", {
+      const response = await axios.put(`/blog/update/${id}`, {
         title,
         snippet,
         body,
@@ -67,7 +60,7 @@ export default function Editblog() {
 
       if (response.status == 200) {
         form.reset();
-        sucessMessage("Blog added Sucessfully");
+        window.location.href = "/blogs";
       } else {
         errorMessage("Unable to add blog this time,try again later!!");
       }
@@ -92,7 +85,10 @@ export default function Editblog() {
               Title:
             </label>
             <input
-              value={blogs.title}
+              value={blog.title}
+              onChange={(e) => {
+                setBlog({ ...blog, title: e.target.value });
+              }}
               type="text"
               id="title"
               name="title"
@@ -109,7 +105,10 @@ export default function Editblog() {
               Snippet:
             </label>
             <input
-              value={blogs.snippet}
+              value={blog.snippet}
+              onChange={(e) => {
+                setBlog({ ...blog, snippet: e.target.value });
+              }}
               type="text"
               id="snippet"
               name="snippet"
@@ -126,7 +125,10 @@ export default function Editblog() {
               Body:
             </label>
             <textarea
-              value={blogs.body}
+              value={blog.body}
+              onChange={(e) => {
+                setBlog({ ...blog, body: e.target.value });
+              }}
               id="body"
               name="body"
               className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"

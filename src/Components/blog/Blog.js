@@ -43,7 +43,7 @@ export default function Blog() {
   };
   useEffect(() => {
     BlogDetail();
-  });
+  },[id]);
   
   const deleteBlog = async (id) => {
     try {
