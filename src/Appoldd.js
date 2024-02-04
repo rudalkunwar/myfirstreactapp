@@ -391,3 +391,45 @@
 //     </div>
 //   )
 // }
+//fetching api
+// import axios from "axios";
+// import React, { useEffect, useState } from "react";
+
+// function App() {
+//   const [todos, setTodos] = useState([]);
+//   const getTodos = async () => {
+//     const endpoint = "https://jsonplaceholder.typicode.com/todos";
+//     const response = await axios.get(endpoint);
+//     if (response) {
+//       setTodos(response.data);
+//       console.log(response.data);
+//     } else {
+//       console.log("unable to fetch data");
+//     }
+//   };
+//   useEffect(() => {
+//     getTodos();
+//   }, []);
+//   return (
+//     <>
+//       {todos && todos.length != 0 ? (
+//         todos.map((todo) => (
+//           <div key={todo.id}>
+//             <div className="bg-green-300 grid grid-cols-4">
+//               <div>
+//                 <h1>{todo.userId}</h1>
+//                 <p>{todo.title}</p>
+//                 <p>{todo.completed}</p>
+//                 <p></p>
+//               </div>
+//             </div>
+//           </div>
+//         ))
+//       ) : (
+//         <h2>unable to get posts</h2>
+//       )}
+//     </>
+//   );
+// }
+
+// export default App;
