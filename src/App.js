@@ -1,28 +1,61 @@
-import React from "react";
-import Home from "./Components/react2/Home";
-import Header from "./Components/react2/Header";
-import About from "./Components/react2/About";
-import Contact from "./Components/react2/Contact";
-import { Route, Routes } from "react-router-dom";
-import AddBlog from "./Components/blog/AddBlog";
-import Blogs from "./Components/blog/Blogs";
-import Blog from "./Components/blog/Blog";
-import Editblog from "./Components/blog/Editblog";
-
+import React, { useEffect, useState } from "react";
+import  axios  from 'axios';
 export default function App() {
+  const [posts, setPosts] = useState([]);
+  const endpoint = "https://jsonplaceholder.typicode.com/posts";
+  const getPosts = () => {
+    axios.get(endpoint)
+      .then((respond) => {
+        setPosts(respond.data);
+        console.log(respond.data);
+        console.log(posts)
+      })
+      .catch((e) => console.log("cannot load posts"));
+  };
+  useEffect(() => {
+    getPosts();
+    console.log(posts);
+  }, []);
+
   return (
-    <>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/blog/add" element={<AddBlog />} />
-        <Route path="blogs/blog/:id" element={<Blog />} />
-        <Route path="blogs/edit/:id" element={<Editblog />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>
-    </>
+    <div className="h-full">
+      <div className="grid grid-cols-5 gap-2">
+        <div className="bg-green-200 p-5 text-center">
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+        <div>
+          <h1>User ID</h1>
+          <p>Title</p>
+          <p>Body</p>
+        </div>
+      </div>
+    </div>
   );
 }
