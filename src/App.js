@@ -1,12 +1,14 @@
 import React from "react";
 import Home from "./Home";
 import { Provider } from "react-redux";
-import Store from './store/Store'
+import store from "./store/mystore";
+import Test from "./Components/Survey/Test";
 function App() {
   return (
     <div>
-      <Provider store={Store}>
-      <Home />
+      <Provider store={store}>
+        <Home />
+        <Test/>
       </Provider>
     </div>
   );

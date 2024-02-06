@@ -1,29 +1,22 @@
 import React from "react";
-import { useDispatch,useSelector } from "react-redux";
-import { increment,decrement } from "./counterSlice";
+import { useSelector,useDispatch } from "react-redux";
+import { decrement, increment, incrementby10 } from "./counterSlice";
+
 function Home() {
+  const counter = useSelector(state=>state.counter.value);
   const dispatch = useDispatch();
-  const counter = useSelector(state=>state.counter.value)
   return (
-    <div className="bg-cyan-300 h-screen flex justify-center items-center">
-      <div className="flex">
-        <div>
-          <button
-            onClick={() => dispatch(increment())}
-            className="px-5 py-2 bg-blue-400 rounded-full"
-          >
-            +
-          </button>
-        </div>
-        <div className="px-5">{counter}</div>
-        <div>
-          <button
-            onClick={() => dispatch(decrement())}
-            className="bg-red-400 px-5 py-2 rounded-full"
-          >
-            -
-          </button>
-        </div>
+    <div className="h-screen flex justify-center items-center">
+      <div>
+        <button onClick={()=>dispatch(increment())} className="bg-blue-500 text-white px-10 py-3 text-3xl">
+          +
+        </button>
+        <button onClick={()=>dispatch(incrementby10(10))} className="bg-blue-500 text-white px-10 py-3 text-3xl">
+          +10
+        </button>
+        <p className="text-center py-4 text-3xl">{counter}</p>
+        <button onClick={()=>dispatch(decrement())} className="bg-red-500 text-white px-10 py-3 text-3xl">-</button>
+        
       </div>
     </div>
   );
