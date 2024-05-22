@@ -1,14 +1,12 @@
 import React from "react";
-import Home from "./Home";
 import { Provider } from "react-redux";
 import store from "./store/mystore";
-import Test from "./Components/Survey/Test";
+import Movie from "./Components/Movie";
 function App() {
   return (
     <div>
       <Provider store={store}>
-        <Home />
-        <Test/>
+        <Movie/>
       </Provider>
     </div>
   );
